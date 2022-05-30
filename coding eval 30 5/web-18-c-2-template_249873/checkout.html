@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+  </head>
+
+  <body>
+    <div id="order-form">
+      <!--Add your form html element here-->
+      <form id="form">
+        <input type="text" placeholder="Name">
+        <input type="number" placeholder="Number">
+        <input type="text" placeholder="Address">
+      </form>
+      <!--In form, give #name,#number and #address as HTML id's to relevant input elements -->
+      <!-- confirm button with id "confirm" -->
+      <button id="confirm" onclick="clickedme()">Confirm Order</button>
+    </div>
+  </body>
+</html>
+
+<script>
+
+function clickedme(){
+  const a=setTimeout(myalert1,0000)
+  const b=setTimeout(myalert2,3000)
+  const c=setTimeout(myalert3,8000)
+  const d=setTimeout(myalert4,10000)
+  const e=setTimeout(myalert5,12000)
+
+function myalert1(){
+  alert("Your order is accepted ")
+}
+function myalert2(){
+  alert("Your order is being Prepared ")
+}
+function myalert3(){
+  alert("Your order is being packed")
+}
+function myalert4(){
+  alert("Your order is out for delivery")
+}
+function myalert5(){
+  alert("Order delivered")
+}
+
+
+}
+// clickedme()
+
+
+</script>
