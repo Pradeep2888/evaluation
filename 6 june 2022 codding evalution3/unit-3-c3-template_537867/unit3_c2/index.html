@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      body{
+        background-color: black;
+      }
+      #navbar{
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(0, 225, 255);
+        margin-bottom: 140px;
+        border: 1px solid red;
+      }
+      #row1{
+        border: 1px solid red;
+        display:block;
+        width: 40%;
+        margin:auto;
+        box-shadow: rgba(252, 250, 250, 0.35) 0px 15px 55px;
+      }
+      #row1>input{
+        display: block;
+        margin:auto;
+      }
+     button{
+        display: block;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <h3>Sign Up</h3>
+      <a href="voucher.html">Purchase Voucher</a>
+    </div>
+    <!-- - name input box :- "name"
+  - email input box :- "email"
+  - Address input box :- "address"
+  - Amount input box :- "amount" 
+  - Submit button :- "submit"
+  - The user will be stored with key:- "user"
+  - The input fields should become empty after submitting -->
+<div id="row1">
+  <input type="text" placeholder="Write Your Name" id="name">
+  <input type="email" placeholder="Email" id="email">
+  <input type="text" placeholder="Address" id="address">
+  <input type="number" placeholder="Amount" id="amount">
+ <button id="submit" onclick="details()">Submit</button>
+</div>
+  </body>
+</html>
+
+<script>
+ function details(){
+ let arr=JSON.parse(localStorage.getItem("user"))||[]
+ 
+//  let name=document.querySelector("#name").value
+//  let email=document.querySelector("#email").value
+//  let address=document.querySelector("#address").value
+//  let amount=document.querySelector("#amount").value
+
+let obj={
+name:document.querySelector("#name").value,
+email:document.querySelector("#email").value,
+address:document.querySelector("#address").value,
+wallet:document.querySelector("#amount").value
+}
+// console.log(obj)
+arr.push(obj)
+
+localStorage.setItem("user",JSON.stringify(arr))
+
+window.location.reload()
+
+
+ }
+
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchases</title>
+    <style>
+      body{
+        background-color: yellow;
+      }
+      #nav{
+        display: flex;
+        justify-content: space-between;
+        background-color: aqua;
+        margin-bottom: 40px;
+      }
+      #purchased_vouchers{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(5,1fr);
+        grid-template-rows: auto;
+        text-align: center;
+      }
+      #purchased_vouchers>div{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Wallet balence id:- "wallet_balance" (only number). -->
+    <!-- - All the purchased voucher will be appended in div with id as "purchased_vouchers".
+  - The remaining balance will show on the page inside h3 tag with id as "balance" -->
+<div id="nav">
+  
+  <h3 id="wallet_balance">Walet Balance:</h3>
+  <h3 id="balance"></h3>
+
+</div> 
+<div id="purchased_vouchers"></div>
+
+</body>
+</html>
+<script>
+  let wallet_amount=JSON.parse(localStorage.getItem("user"))||[]
+  let avilable_balance=Number(wallet_amount[0].wallet)
+  let balance=document.querySelector("#wallet_balance")
+  balance.innerText="Wallet Balance:"+avilable_balance
+
+
+  let selected=JSON.parse(localStorage.getItem("purchase"))||[]
+  console.log(selected)
+  let container=document.querySelector("#purchased_vouchers")
+
+
+  selected.forEach(function(el,Index){
+    let card1=document.createElement("div")
+    
+    let img=document.createElement("img")
+    img.src=el.image
+    let name=document.createElement("p")
+    name.innerText=el.name
+    let price=document.createElement("p")
+    price.innerText=el.price
+    let button=document.createElement("button")
+    button.innerText="Buy Voucher"
+    button.addEventListener("click",function(){
+      selected(el,Index)
+    })
+    
+    card1.append(img,name,price,button)
+    container.append(card1)
+  })
+
+
+  let b=document.querySelector("#balance")
+  b.innerText="Balance:"+avilable_balance
+</script>
